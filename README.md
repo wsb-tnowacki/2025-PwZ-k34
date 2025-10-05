@@ -6,7 +6,9 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
+
 ## Instrukcja do postępowania z repozytorium
+
 Do instalacji należy użyć polecenia wykonanego w katalogu np. C:\xampp\htdocs :
 
 git clone <adres_URL>
