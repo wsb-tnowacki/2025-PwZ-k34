@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
+use function Ramsey\Uuid\v1;
+
 class PostController extends Controller
 {
     /**
@@ -12,7 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return 'index';
+        return view('post.lista');
     }
 
     /**
@@ -20,7 +22,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('post.dodaj');
     }
 
     /**
@@ -28,7 +30,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return 'store';
     }
 
     /**
@@ -36,7 +38,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('post.pokaz');
     }
 
     /**
@@ -44,7 +46,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('post.edytuj');
     }
 
     /**
@@ -52,7 +54,7 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        return 'update';
     }
 
     /**
@@ -60,6 +62,6 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        return 'destroy';
     }
 }
