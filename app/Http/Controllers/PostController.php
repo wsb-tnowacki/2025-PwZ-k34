@@ -31,12 +31,13 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //dump($request);
-        $post = new Post();
+/*         $post = new Post();
         $post->tytul = request('tytul');
         $post->autor = $request['tytul'];
         $post->email = request('email');
         $post->tresc = request('tresc');
-        $post->save();
+        $post->save(); */
+        Post::create($request->all());
         return redirect(route('post.index'));
     }
 
