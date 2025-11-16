@@ -12,6 +12,9 @@
         @endforeach
        </ol>
         @endisset
-        @dump($tasks)
+        @isset($tasks)
+        @dump($tasks)            
+        @endisset
+
      </p>
 @endsection
