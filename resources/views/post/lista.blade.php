@@ -17,7 +17,8 @@
     </tr>
     </thead>
     <tbody>
-        @php($lp=1)
+        {{-- @php($lp=1) --}}
+        @php($lp=$posty->firstItem())
         @forelse ($posty as $post)
             <tr>
                 <td class="border border-gray-300 px-4 py-2">{{$lp++}}</td>
@@ -48,6 +49,7 @@
         @endforelse
     </tbody>
 </table> 
+{{$posty->links()}}
 @else
 <div>Nie ma zadnych postów</div>   
 @endisset
