@@ -42,8 +42,14 @@ class PostController extends Controller
         $post->email = request('email');
         $post->tresc = request('tresc');
         $post->save(); */
+        $request->validate([
+            'tytul' => 'required|min:2|max:200',
+            'autor' => 'required|min:3|max:100',
+            'email' => 'required|email:dns,rfc|max:200',
+            'tresc' => 'required|min:5',
+        ]);
         Post::create($request->all());
-        return redirect(route('post.index'));
+        return redirect(route('post.index'))->with('message', 'Dodano poprawnie post');
     }
 
     /**
@@ -68,7 +74,7 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $post->update($request->all());
-        return redirect(route('post.index'));
+        return redirect(route('post.index'))->with('message', 'Zmieniono poprawnie post');
     }
 
     /**
@@ -79,6 +85,6 @@ class PostController extends Controller
         /* dump($post);
         return 'destroy'; */
         $post->delete();
-        return redirect(route('post.index'));
+        return redirect(route('post.index'))->with('message', 'Usunięto poprawnie post')->with('color', 'red');
     }
 }
