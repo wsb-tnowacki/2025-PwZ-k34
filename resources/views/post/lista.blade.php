@@ -23,7 +23,7 @@
             <tr>
                 <td class="border border-gray-300 px-4 py-2">{{$lp++}}</td>
                 <td class="border border-gray-300 px-4 py-2"><a href="{{route('post.show', $post['id'])}}">{{$post->tytul}}</a></td>
-                <td class="border border-gray-300 px-4 py-2">{{$post->autor}}</td>
+                <td class="border border-gray-300 px-4 py-2">{{$post->user->name}}</td>
                 <td class="border border-gray-300 px-4 py-2">{{$post->created_at->setTimezone('Europe/Warsaw')->locale('pl')->translatedFormat('j F Y')}}</td>
                 @auth
                 <td class="border border-gray-300 px-4 py-2">
@@ -49,7 +49,7 @@
         @endforelse
     </tbody>
 </table> 
-{{$posty->links()}}
+{{$posty->onEachSide(1)->links()}}
 @else
 <div>Nie ma zadnych postów</div>   
 @endisset

@@ -6,6 +6,8 @@ use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
+
 use function Ramsey\Uuid\v1;
 
 class PostController extends Controller
@@ -50,6 +52,7 @@ class PostController extends Controller
             'email' => 'required|email:dns,rfc|max:200',
             'tresc' => 'required|min:5',
         ]); */
+        $request->merge(['user_id' => Auth::user()->id]);
         Post::create($request->all());
         return redirect(route('post.index'))->with('message', 'Dodano poprawnie post');
     }
@@ -75,7 +78,11 @@ class PostController extends Controller
      */
     public function update(PostRequest $request, Post $post)
     {
+        $request->merge(['user_id' => Auth::user()->id]);
         $post->update($request->all());
+        /* $dane = $request->all();
+        $dane['user_id'] = Auth::user()->id;
+        $post->update($dane); */
         return redirect(route('post.index'))->with('message', 'Zmieniono poprawnie post');
     }
 
